@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "locations",
   "info": {
-    "name": "Tag",
-    "description": ""
+    "name": "Location"
   },
   "options": {
     "increments": true,
@@ -13,6 +12,9 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
+      "type": "string"
+    },
+    "coordinates": {
       "type": "string"
     }
   }

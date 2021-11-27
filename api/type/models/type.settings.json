@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "types",
   "info": {
-    "name": "Tag",
-    "description": ""
+    "name": "Type"
   },
   "options": {
     "increments": true,
@@ -14,6 +13,9 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
