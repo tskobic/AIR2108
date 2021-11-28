@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "resources",
   "info": {
-    "name": "Resource"
+    "name": "Resource",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -23,6 +24,23 @@
     "borroweds": {
       "via": "resource",
       "collection": "borrowed"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "resources",
+      "dominant": true
+    },
+    "location": {
+      "model": "location",
+      "via": "resources"
+    },
+    "type": {
+      "model": "type",
+      "via": "resources"
+    },
+    "organization": {
+      "model": "organization",
+      "via": "resources"
     }
   }
 }

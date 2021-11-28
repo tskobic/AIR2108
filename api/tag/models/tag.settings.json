@@ -14,6 +14,10 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "resources": {
+      "via": "tags",
+      "collection": "resource"
     }
   }
 }

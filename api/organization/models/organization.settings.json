@@ -22,6 +22,15 @@
     },
     "telephone": {
       "type": "string"
+    },
+    "users": {
+      "via": "organizations",
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "resources": {
+      "via": "organization",
+      "collection": "resource"
     }
   }
 }

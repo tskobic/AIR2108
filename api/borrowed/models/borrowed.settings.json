@@ -12,13 +12,13 @@
   "pluginOptions": {},
   "attributes": {
     "resource": {
-      "model": "resource",
-      "via": "borroweds"
+      "via": "borroweds",
+      "model": "resource"
     },
     "user": {
+      "via": "borroweds",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "borroweds"
+      "model": "user"
     },
     "dateFrom": {
       "type": "date"

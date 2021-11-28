@@ -16,6 +16,10 @@
     },
     "coordinates": {
       "type": "string"
+    },
+    "resources": {
+      "via": "location",
+      "collection": "resource"
     }
   }
 }

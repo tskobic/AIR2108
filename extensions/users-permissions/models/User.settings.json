@@ -68,6 +68,11 @@
     "borroweds": {
       "via": "user",
       "collection": "borrowed"
+    },
+    "organizations": {
+      "collection": "organization",
+      "via": "users",
+      "dominant": true
     }
   }
 }

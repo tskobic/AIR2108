@@ -16,6 +16,10 @@
     },
     "description": {
       "type": "text"
+    },
+    "resources": {
+      "via": "type",
+      "collection": "resource"
     }
   }
 }
