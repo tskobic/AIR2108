@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "borroweds",
+  "info": {
+    "name": "Borrowed"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "resource": {
+      "model": "resource",
+      "via": "borroweds"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "borroweds"
+    },
+    "dateFrom": {
+      "type": "date"
+    },
+    "dateTo": {
+      "type": "date"
+    },
+    "status": {
+      "type": "boolean"
+    }
+  }
+}

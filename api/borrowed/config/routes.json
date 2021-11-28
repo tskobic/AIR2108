@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/borroweds",
+      "handler": "borrowed.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/borroweds/count",
+      "handler": "borrowed.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/borroweds/:id",
+      "handler": "borrowed.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/borroweds",
+      "handler": "borrowed.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/borroweds/:id",
+      "handler": "borrowed.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/borroweds/:id",
+      "handler": "borrowed.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
