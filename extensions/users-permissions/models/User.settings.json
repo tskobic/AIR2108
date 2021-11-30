@@ -14,13 +14,13 @@
       "type": "string",
       "minLength": 3,
       "unique": true,
-      "configurable": false,
+      "configurable": true,
       "required": true
     },
     "email": {
       "type": "email",
       "minLength": 6,
-      "configurable": false,
+      "configurable": true,
       "required": true
     },
     "provider": {
@@ -30,17 +30,17 @@
     "password": {
       "type": "password",
       "minLength": 6,
-      "configurable": false,
+      "configurable": true,
       "private": true
     },
     "resetPasswordToken": {
       "type": "string",
-      "configurable": false,
+      "configurable": true,
       "private": true
     },
     "confirmationToken": {
       "type": "string",
-      "configurable": false,
+      "configurable": true,
       "private": true
     },
     "confirmed": {
