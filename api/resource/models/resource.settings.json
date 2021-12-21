@@ -41,6 +41,18 @@
     "organization": {
       "model": "organization",
       "via": "resources"
+    },
+    "QR": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }
