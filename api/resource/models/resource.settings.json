@@ -42,7 +42,7 @@
       "model": "organization",
       "via": "resources"
     },
-    "QR": {
+    "qr": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
