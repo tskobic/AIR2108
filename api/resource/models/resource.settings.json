@@ -15,9 +15,6 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "quantity": {
       "type": "integer"
     },
@@ -41,6 +38,40 @@
     "organization": {
       "model": "organization",
       "via": "resources"
+    },
+    "Details": {
+      "type": "dynamiczone",
+      "components": [
+        "details.color",
+        "details.description"
+      ]
+    },
+    "maxTimeInDays": {
+      "type": "integer"
+    },
+    "Picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "QR": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

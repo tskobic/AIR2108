@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_details_colors",
+  "info": {
+    "name": "Color",
+    "icon": "paint-brush"
+  },
+  "options": {},
+  "attributes": {
+    "Color": {
+      "type": "enumeration",
+      "enum": [
+        "Red",
+        "Blue",
+        "Green",
+        "Black",
+        "White",
+        "Yellow"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_details_descriptions",
+  "info": {
+    "name": "Description",
+    "icon": "notes-medical"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text"
+    }
+  }
+}
