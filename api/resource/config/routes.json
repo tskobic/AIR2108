@@ -8,6 +8,7 @@
         "policies": []
       }
     },
+    
     {
       "method": "GET",
       "path": "/resources/count",
@@ -20,6 +21,14 @@
       "method": "GET",
       "path": "/resources/:id",
       "handler": "resource.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/mail",
+      "handler": "Email.index",
       "config": {
         "policies": []
       }
