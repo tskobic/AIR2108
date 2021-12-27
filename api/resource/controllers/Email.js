@@ -22,7 +22,7 @@ module.exports = {
         ctx.send("Password changed")
         
         await strapi.plugins['email'].services.email.send({
-            to:"judge.doyle49@ethereal.email",
+            to:params.identifier,
             from:"judge.doyle49@ethereal.email",
             replyTo:"judge.doyle49@ethereal.email",
             subject: 'Password reset - STRAPI',
