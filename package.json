@@ -11,10 +11,13 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@strapi/provider-email-nodemailer": "^4.0.2",
+    "@strapi/provider-email-sendgrid": "^4.0.2",
     "knex": "0.21.18",
     "pg": "^8.7.1",
     "pg-connection-string": "^2.5.0",
     "qr-image": "^3.2.0",
+    "sendmail": "^1.6.1",
     "sqlite3": "5.0.0",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
@@ -26,6 +29,7 @@
     "strapi-plugin-upload": "3.6.8",
     "strapi-plugin-users-permissions": "3.6.8",
     "strapi-provider-upload-azure-storage": "^2.0.0",
+    "strapi-provider-email-sendgrid": "^3.6.8",
     "strapi-utils": "3.6.8"
   },
   "author": {
