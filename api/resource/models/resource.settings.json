@@ -31,10 +31,6 @@
       "model": "location",
       "via": "resources"
     },
-    "type": {
-      "model": "type",
-      "via": "resources"
-    },
     "organization": {
       "model": "organization",
       "via": "resources"
@@ -72,6 +68,9 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "Grouped": {
+      "type": "boolean"
     }
   }
 }
