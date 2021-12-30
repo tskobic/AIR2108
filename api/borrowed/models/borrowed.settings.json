@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "borroweds",
   "info": {
-    "name": "Borrowed"
+    "name": "Borrowed",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -28,6 +29,9 @@
     },
     "status": {
       "type": "boolean"
+    },
+    "Quantity": {
+      "type": "integer"
     }
   }
 }
