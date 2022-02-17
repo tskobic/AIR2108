@@ -14,7 +14,7 @@ module.exports = {
 
     async afterCreate(result) {
       let id = result.id != null ? result.id : 2;
-      let qr_svg = qr.image(`invapp://app/resources?id=${result.id}`, {
+      let qr_svg = qr.image(`invapp://app/resources?id=${id}`, {
         type: "svg",
       });
       qr_svg.pipe(fs.createWriteStream("qr.svg"));
