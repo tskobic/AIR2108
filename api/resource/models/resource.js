@@ -11,8 +11,13 @@ const fs = require("fs");
 
 module.exports = {
   lifecycles: {
-    async afterCreate(result) {
+    async beforeCreate(data) {
       let image = test.toFile("qr.png", "test");
+
+    },
+
+    async afterCreate(result) {
+      // let image = test.toFile("qr.png", "test");
       // let qr_svg = qr.image(JSON.stringify(result), { type: "svg" });
       // qr_svg.pipe(fs.createWriteStream("qr-code.svg"));
 
