@@ -12,16 +12,20 @@ const fs = require("fs");
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      let image = test.toFile("qr.png", "test");
-
+      let qr_svg = qr.image("test", { type: "svg" });
+      qr_svg.pipe(fs.createWriteStream("./qr.svg"));
+      // let entries = await strapi.query('resource').find({ _sort: 'id:desc' });
+      // let image = test.toFile("qr.png", `invapp://resources?id=${entries[0].id+1}`);
+      // console.log("test");
     },
 
     async afterCreate(result) {
       // let image = test.toFile("qr.png", "test");
-      // let qr_svg = qr.image(JSON.stringify(result), { type: "svg" });
-      // qr_svg.pipe(fs.createWriteStream("qr-code.svg"));
+      let qr_svg = qr.image(`invapp://app/resources?id=${result.id}`, { type: "svg" });
+      qr_svg.pipe(fs.createWriteStream("./qr.svg"));
 
-      const fileStat = await fs.statSync("qr.png");
+      const fileStat = fs.statSync("qr.svg");
+
       const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
@@ -29,9 +33,9 @@ module.exports = {
           field: "qr",
         },
         files: {
-          path: "qr.png",
-          name: `qr${result.id}.png`,
-          type: "image/png", // mime type
+          path: "./qr.svg",
+          name: `qr${result.id}.svg`,
+          type: "image/svg+xml", // mime type
           size: fileStat.size,
         },
       });
