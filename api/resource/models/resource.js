@@ -10,13 +10,16 @@ const fs = require("fs");
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      let qr_svg = qr.image(JSON.stringify(data), { type: "svg" });
-      qr_svg.pipe(fs.createWriteStream("qr.svg"));
     },
 
     async afterCreate(result) {
-      const fileStat = await fs.statSync("qr.svg");
-      const qr = await strapi.plugins.upload.services.upload.upload({
+      let qr_svg = qr.image("invapp://app/resources?id=" + result.id, {
+        type: "svg",
+      });
+      qr_svg.pipe(fs.createWriteStream("qr.svg"));
+
+      const fileStat = fs.statSync("qr.svg");
+      const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
           ref: "resource",
