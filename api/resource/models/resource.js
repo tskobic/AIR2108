@@ -9,15 +9,12 @@ const fs = require("fs");
 
 module.exports = {
   lifecycles: {
-    async beforeCreate(data) {
-    },
-
     async afterCreate(result) {
       let text = result.id.toString();
-      let qr_svg = qr.image(String(`invapp://app/resources?id=${text}`), { type: "png" });
-      qr_svg.pipe(fs.createWriteStream("qr.png"));
+      let qr_svg = qr.image(String(`invapp://app/resources?id=${text}`), { type: "svg" });
+      qr_svg.pipe(fs.createWriteStream("qr.svg"));
 
-      const fileStat = await fs.statSync("qr.png");
+      const fileStat = await fs.statSync("qr.svg");
       const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
@@ -25,9 +22,9 @@ module.exports = {
           field: "qr",
         },
         files: {
-          path: "qr.png",
-          name: `qr${result.id}.png`,
-          type: "image/png", // mime type
+          path: "qr.svg",
+          name: `qr${result.id}.svg`,
+          type: "image/svg+xml", // mime type
           size: fileStat.size,
         },
       });
