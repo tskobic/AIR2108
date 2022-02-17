@@ -1,5 +1,7 @@
 "use strict";
 const qr = require("qr-image");
+const test = require("qrcode");
+
 const fs = require("fs");
 
 /**
@@ -10,10 +12,11 @@ const fs = require("fs");
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
-      let qr_svg = qr.image(JSON.stringify(result), { type: "svg" });
-      qr_svg.pipe(fs.createWriteStream("qr-code.svg"));
+      let image = test.toFile("qr.png", "test");
+      // let qr_svg = qr.image(JSON.stringify(result), { type: "svg" });
+      // qr_svg.pipe(fs.createWriteStream("qr-code.svg"));
 
-      const fileStat = await fs.statSync("qr-code.svg");
+      const fileStat = await fs.statSync("qr.png");
       const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
@@ -21,9 +24,9 @@ module.exports = {
           field: "qr",
         },
         files: {
-          path: "qr-code.svg",
-          name: `qr${result.id}-code.svg`,
-          type: "image/svg+xml", // mime type
+          path: "qr.png",
+          name: `qr${result.id}.png`,
+          type: "image/png", // mime type
           size: fileStat.size,
         },
       });
