@@ -7,28 +7,30 @@ const fs = require("fs");
  * to customize this model
  */
 
- module.exports = {
+module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      let qr_svg = qr.image(JSON.stringify(data), { type: "svg" });
-      qr_svg.pipe(fs.createWriteStream("qr.svg"));
     },
 
     async afterCreate(result) {
-      const fileStat = await fs.statSync("qr.svg");
-      const qr = await strapi.plugins.upload.services.upload.upload({
+      let text = result.id.toString();
+      let qr_svg = qr.image(String(`invapp://app/resources?id=${text}`), { type: "png" });
+      qr_svg.pipe(fs.createWriteStream("qr.png"));
+
+      const fileStat = await fs.statSync("qr.png");
+      const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
           ref: "resource",
-         field: "qr",
-       },
-       files: {
-         path: "qr.svg",
-         name: `qr${result.id}.svg`,
-         type: "image/svg+xml", // mime type
-         size: fileStat.size,
-       },
-     });
-   },
- },
+          field: "qr",
+        },
+        files: {
+          path: "qr.png",
+          name: `qr${result.id}.png`,
+          type: "image/png", // mime type
+          size: fileStat.size,
+        },
+      });
+    },
+  },
 };
