@@ -16,7 +16,7 @@ module.exports = {
       let qr_svg = qr.image(String(`invapp://app/resources?id=${result.id}`), { type: "png" });
       qr_svg.pipe(fs.createWriteStream("qr.png"));
 
-      const fileStat = fs.statSync("qr.png");
+      const fileStat = await fs.statSync("qr.png");
       const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
