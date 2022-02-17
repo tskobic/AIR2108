@@ -13,7 +13,7 @@ module.exports = {
     },
 
     async afterCreate(result) {
-      let qr_svg = qr.image("invapp://app/resources?id=" + result.id, {
+      let qr_svg = qr.image(`invapp://app/resources?id=${result.id}`, {
         type: "svg",
       });
       qr_svg.pipe(fs.createWriteStream("qr.svg"));
