@@ -10,7 +10,7 @@ const fs = require("fs");
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
-      let qr_svg = qr.image(String(`invapp://app/resources?id=${result.id}`), { type: "png", parse_url: true });
+      let qr_svg = qr.image("23", { type: "png" });
       qr_svg.pipe(fs.createWriteStream("qr.png"));
 
       const fileStat = await fs.statSync("qr.png");
