@@ -10,10 +10,10 @@ const fs = require("fs");
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
-      let qr_svg = qr.image("23", { type: "png" });
-      qr_svg.pipe(fs.createWriteStream("qr.png"));
+      let qr_svg = qr.image(JSON.stringify(result), { type: "svg" });
+      qr_svg.pipe(fs.createWriteStream("qr-code.svg"));
 
-      const fileStat = await fs.statSync("qr.png");
+      const fileStat = await fs.statSync("qr-code.svg");
       const record = await strapi.plugins.upload.services.upload.upload({
         data: {
           refId: result.id,
@@ -21,9 +21,9 @@ module.exports = {
           field: "qr",
         },
         files: {
-          path: "qr.png",
-          name: `qr${result.id}.png`,
-          type: "image/png", // mime type
+          path: "qr-code.svg",
+          name: `qr${result.id}-code.svg`,
+          type: "image/svg+xml", // mime type
           size: fileStat.size,
         },
       });
