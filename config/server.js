@@ -7,6 +7,7 @@ module.exports = ({ env }) => ({
     },
     watchIgnoreFiles: [
       '**/invApp-strapi/qr.svg**',
+      '**/AIR2108/qr.svg**',
     ]
   },
 });

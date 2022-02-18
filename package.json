@@ -17,6 +17,7 @@
     "pg": "^8.7.1",
     "pg-connection-string": "^2.5.0",
     "qr-image": "^3.2.0",
+    "qrcode": "^1.5.0",
     "sendmail": "^1.6.1",
     "sqlite3": "5.0.0",
     "strapi": "3.6.8",
